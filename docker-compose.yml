@@ -1,0 +1,15 @@
+version: "3"
+services:
+  xray:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    restart: always
+    container_name: xray_xtls_real.03
+    network_mode: "host"
+    environment:
+      - DOM=${DOM}
+      - UUID=${UUID}
+      - SID=${SID}
+      - PBK=${PBK}
+      - PRK=${PRK}
