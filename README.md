@@ -6,7 +6,7 @@ Installation steps:
 1) Install Docker , there is an intstruction for it on the official website https://docs.docker.com/desktop/install/linux-install/
 2) Download the repository using the git clone command https://github.com/Dustlex/xtls_reality_01.git
 3) Go to the downloaded directory cd xtls_reality_01/ 
-4) Make changes to the .env file . Be sure to specify only the value of the DOM variable (this is the domain of the site being cloned).
+4) Make changes to the .env file. The only thing that should be specified is the value of the DOM variable (this is the domain of the site that is being masked).
  - the working variant of the file is:
 ```
 root@2172437-rl76948:~/xtls_reality_01# cat .env 
@@ -51,7 +51,7 @@ Download the desired client. Below will be an example to configure NekoBox for w
 1) Установить Docker , для него есть интсрукция на официальном сайте https://docs.docker.com/desktop/install/linux-install/ 
 2) Скачать репозиторий командой git clone https://github.com/Dustlex/xtls_reality_01.git 
 3) Зайти в скачанную директорию cd xtls_reality_01/ 
-4) Внести изменения в файл .env . Обязательно указать только значение переменной DOM (это домен сайта под который происходит маскировка).
+4) Внести изменения в файл .env . Из того что следует указать обязательно - только значение переменной DOM (это домен сайта под который происходит маскировка).
  - Т.е. рабочий вариант файла это:
 ```
 root@2172437-rl76948:~/xtls_reality_01# cat .env 
