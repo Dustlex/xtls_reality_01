@@ -37,7 +37,7 @@ Download the desired client. Below will be an example to configure NekoBox for w
 - Transport - tcp
 - Security - tls
 - Packet encoding - xudp
-- SNI - what you got in point 6 (relevant also for those who filled env themselves)
+- SNI - specified domain, it is included in the script output in item 6.
 - ALPN - h2
 - Fingerprint - chrome - I recommend it, but you can choose another one.
 - Reality Pbk - what you got in point 6 (also relevant for those who filled out env themselves)
@@ -82,7 +82,7 @@ ShortID(Sid) = 9e0fb27ceded3dcc
 - Транспорт -  tcp
 - Безопасность - tls
 - Кодирования пакетов - xudp
-- SNI - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
+- SNI - указанный домен, он есть в т.ч. в выводе скрипта в пункте 6
 - ALPN - h2
 - Fingerprint - chrome  - рекомендую его, но можете выбрать другой
 - Reality Pbk - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
