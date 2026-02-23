@@ -1,5 +1,5 @@
 #!/bin/bash
-K=${XRAY_K:-$(/opt/xray/xray x25519 | awk '{print $3}')}
+K=${XRAY_K:-$(/opt/xray/xray x25519 | awk '{print $2}')}
 export PRK=${PRK:-$(echo "$K" | sed -n 1p)}
 export PBK=${PBK:-$(echo "$K" | sed -n 2p)}
 export UUID=${UUID:-$(/opt/xray/xray uuid)}
