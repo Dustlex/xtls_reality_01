@@ -1,6 +1,6 @@
 {
   "log": {
-    "loglevel": "info"
+    "loglevel": "warning"
   },
   "routing": {
     "rules": [],
@@ -37,11 +37,13 @@
 			"maxTimeDiff": 0,
 			"shortIds": [
 				"${SID}"
-			]
+			],
+		    "fingerprint": "chrome",
+			"alpn": ["h2", "http/1.1"]
 		}
       },
       "sniffing": {
-        "enabled": true,
+        "enabled": false,
         "destOverride": [
           "http",
           "tls"
