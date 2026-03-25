@@ -38,7 +38,7 @@
 			"shortIds": [
 				"${SID}"
 			],
-		    "fingerprint": "chrome",
+			"fingerprint": "chrome",
 			"alpn": ["h2", "http/1.1"]
 		}
       },
