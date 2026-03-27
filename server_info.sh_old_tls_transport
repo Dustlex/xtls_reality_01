@@ -1,0 +1,6 @@
+#! /bin/bash
+echo "Domain(SNI) = `docker compose exec xray bash -c "sed -n -e 32p /opt/xray/config.json" | awk -F '"' '{print $2}'`"
+echo "UUID = `docker compose exec xray bash -c "sed -n -e 17p /opt/xray/config.json" | awk -F '"' '{print $4}'`"
+echo "ShortID(SID) = `docker compose exec xray bash -c "sed -n -e 40p /opt/xray/config.json" | awk -F '"' '{print $2}'`"
+echo "PrivateKey(PRK) = `docker compose exec xray bash -c "sed -n -e 34p /opt/xray/config.json" | awk -F '"' '{print $4}'`"
+echo "PublicKey(PBK) = `docker compose exec xray bash -c "cat /home/PBK.txt"`"
