@@ -10,7 +10,7 @@ Installation steps:
  - the working variant of the file is:
 ```
 root@2172437-rl76948:~/xtls_reality_01# cat .env 
-DOM=www.microsoft.com
+DOM=microsoft.com
 UUID=
 SID=
 PRK=
@@ -24,24 +24,29 @@ PBK=
 PublicKey(Pbk) = L1P7m1PQ8R-hQHlANMqnuvp4YNqUWkHEagp5fCkJrQw
 PrivateKey(Prk) = CLV3hJDMAXjjyLG8Skyvki1RovnmchDXswjRko5e0UE
 UUID = 9f4f81f6-d5f2-4c30-a2d5-9f91826a3af9
-Domain(SNI) = www.microsoft.com
+Domain(SNI) = microsoft.com
 ShortID(Sid) = 9e0fb27ceded3dcc
 ```
 Download the desired client. Below will be an example to configure NekoBox for windows:
-- Server - New Profile - VLESS
+- Server - New Profile - VLESS for tls or VLESS(xray) for xhttp
 - Name - any name
 - Address - IP of the server where the installation took place
 - Port - 443
 - UUID - what you got in point 6 (also relevant for those who filled env themselves).
-- Flow - xtls-rprx-vision
-- Transport - tcp
-- Security - tls
-- Packet encoding - xudp
+- Flow - xtls-rprx-vision or nothing
+- Transport - xhttp
+- Security - reality
+- Packet encoding - xudp or nothing
 - SNI - specified domain, it is included in the script output in item 6.
 - ALPN - h2
-- Fingerprint - chrome - I recommend it, but you can choose another one.
+- Fingerprint - chrome - I recommend it, but you can choose another one (random or qq)
 - Reality Pbk - what you got in point 6 (also relevant for those who filled out env themselves)
 - Reality Sid - what you got in point 6 (also relevant for those who filled env themselves).
+- Connection settings:
+   Host - empty
+   Path - /
+   Headers - empty
+   Mode - auto
 - Leave everything else unchanged (even if the fields are empty).
 
 
@@ -55,7 +60,7 @@ Download the desired client. Below will be an example to configure NekoBox for w
  - Т.е. рабочий вариант файла это:
 ```
 root@2172437-rl76948:~/xtls_reality_01# cat .env 
-DOM=www.microsoft.com
+DOM=microsoft.com
 UUID=
 SID=
 PRK=
@@ -69,22 +74,28 @@ PBK=
 PublicKey(Pbk) = L1P7m1PQ8R-hQHlANMqnuvp4YNqUWkHEagp5fCkJrQw
 PrivateKey(Prk) = CLV3hJDMAXjjyLG8Skyvki1RovnmchDXswjRko5e0UE
 UUID = 9f4f81f6-d5f2-4c30-a2d5-9f91826a3af9
-Domain(SNI) = www.microsoft.com
+Domain(SNI) = microsoft.com
 ShortID(Sid) = 9e0fb27ceded3dcc
 ```
-Качаем нужный клиент. Ниже будет пример для настройки NekoBox под windows:
-- Сервер - Новый профиль - VLESS
+Качаем нужный клиент. Ниже будет пример для настройки throne под windows:
+- Сервер - Новый профиль - VLESS для tls и VLESS(xray) для xhttp.
 - Имя - любое
 - Адрес - IP сервера где происходила установка
 - Порт - 443
 - UUID - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
-- Flow - xtls-rprx-vision
-- Транспорт -  tcp
-- Безопасность - tls
-- Кодирования пакетов - xudp
+- Flow - xtls-rprx-vision или ничего
+- Транспорт (сеть) -  xhttp
+- Безопасность - reality
+- Кодирования пакетов - xudp или ничего
 - SNI - указанный домен, он есть в т.ч. в выводе скрипта в пункте 6
 - ALPN - h2
-- Fingerprint - chrome  - рекомендую его, но можете выбрать другой
+- Fingerprint - chrome  - рекомендую его, но можете выбрать другой, или random/qq
 - Reality Pbk - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
 - Reality Sid - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
+- Reality SpiderX - ставим просто слеш /
+- Настройки соединения:
+  Хост - пусто
+  Путь - /
+  Заголовки - пусто
+  Режим - auto
 - Все остальное оставляем без изменений (даже если поля пустые).
