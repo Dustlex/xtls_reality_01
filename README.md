@@ -3,7 +3,7 @@
 Docker install
 ```
 curl -fsSL https://get.docker.com/ -o get-docker.sh
-sudo sh ./get-docker.sh --dry-run
+sudo sh ./get-docker.sh
 ```
 
 This is the simple XRAY-XTLS-Reality server in the docker container
