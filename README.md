@@ -1,5 +1,11 @@
 # xtls_reality_01
 
+Docker install
+```
+curl -fsSL https://get.docker.com/ -o get-docker.sh
+sudo sh ./get-docker.sh --dry-run
+```
+
 This is the simple XRAY-XTLS-Reality server in the docker container
 
 Installation steps:
