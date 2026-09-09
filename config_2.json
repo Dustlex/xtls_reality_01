@@ -1,89 +1,118 @@
 {
-    "log": {
-        "loglevel": "warning"
-    },
-    "routing": {
-        "domainStrategy": "IPIfNonMatch",
-        "rules": [
-            {
-                "type": "field",
-                "domain": [
-                    "geosite:category-ads-all"
-                ],
-                "outboundTag": "block"
-            },
-            {
-                "type": "field",
-                "ip": [
-                    "geoip:cn"
-                ],
-                "outboundTag": "block"
-            }
+  "log": {
+    "loglevel": "warning"
+  },
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "domain": ["geosite:category-ads-all"],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "ip": ["geoip:cn"],
+        "outboundTag": "block"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "inbound-443",
+      "listen": "0.0.0.0",
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "${UUID}",
+            "email": "main-vision",
+            "flow": "xtls-rprx-vision"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "dest": "${DOM}:443"
+          }
         ]
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "target": "${DOM}:443",
+          "serverNames": ["${DOM}"],
+          "privateKey": "${PRK}",
+          "minClientVer": "0.0.0",
+          "maxClientVer": "",
+          "maxTimeDiff": 0,
+          "shortIds": ["${SID}"]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"],
+        "routeOnly": true
+      }
     },
-    "inbounds": [
-        {
-            "listen": "0.0.0.0",
-            "port": 443,
-            "protocol": "vless",
-            "settings": {
-                "clients": [
-                    {
-                        "email": "main",
-                        "id": "${UUID}",
-                        "flow": ""
-                    }
-                ],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "xhttp",
-                "xhttpSettings": {
-                    "path": "/"
-                },
-                "security": "reality",
-                "realitySettings": {
-                    "show": false,
-                    "target": "${DOM}:443",
-                    "serverNames": [
-                        "${DOM}",
-                        "www.${DOM}"
-                    ],
-                    "privateKey": "${PRK}",
-                    "minClientVer": "",
-                    "maxClientVer": "",
-                    "maxTimeDiff": 0,
-                    "shortIds": [
-                        "${SID}"
-                    ]
-                }
-            },
-            "sniffing": {
-                "enabled": true,
-                "destOverride": [
-                    "http",
-                    "tls",
-                    "quic"
-                ]
-            }
-        }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom",
-            "tag": "direct"
+    {
+      "tag": "inbound-xhttp",
+      "listen": "0.0.0.0",
+      "port": 8443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "${UUID}",
+            "email": "main-xhttp"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "target": "${DOM}:443",
+          "serverNames": ["${DOM}"],
+          "privateKey": "${PRK}",
+          "minClientVer": "0.0.0",
+          "maxClientVer": "",
+          "maxTimeDiff": 0,
+          "shortIds": ["${SID}"]
         },
-        {
-            "protocol": "blackhole",
-            "tag": "block"
+        "xhttpSettings": {
+          "path": "/",
+          "mode": "auto"
         }
-    ],
-    "policy": {
-        "levels": {
-            "0": {
-                "handshake": 3,
-                "connIdle": 180
-            }
-        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"],
+        "routeOnly": true
+      }
     }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ],
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 3,
+        "connIdle": 180
+      }
+    }
+  }
 }
