@@ -78,4 +78,29 @@ VLESS (XHTTP) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?
 Скачиваете HAPP c https://github.com/Happ-proxy/happ-desktop , после чего устанавливаете, и нажимаете "добавить сервер" выбираете опцию "добавить URL". 
 Сделайте так сначало для одной ссылки VLESS (TCP/Vision) , затем для VLESS (XHTTP). 
 
+А это себе потестить интереса ради
+```
+"realitySettings": {
+  "show": false,
+  "target": "${DOM}:443",
+  "serverNames": ["${DOM}"],
+  "privateKey": "${PRK}",
+  "minClientVer": "0.0.0",
+  "maxClientVer": "",
+  "maxTimeDiff": 0,
+  "shortIds": ["${SID}"],
+
+  "limitFallbackUpload": {
+    "afterBytes": 10485760,
+    "bytesPerSec": 1048576,
+    "burstBytesPerSec": 5242880
+  },
+  "limitFallbackDownload": {
+    "afterBytes": 10485760,
+    "bytesPerSec": 1048576,
+    "burstBytesPerSec": 5242880
+  }
+}
+```
+
 ПОСЛЕ ЧЕГО НЕ ЗАБУДЬТЕ НАСТРОИТЬ МАРШРУТИЗАЦЮ, ДЛЯ ЭТОГО ИЩИТЕ ГАЙД ОТДЕЛЬНО
