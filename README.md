@@ -16,7 +16,7 @@ Installation steps:
  - the working variant of the file is:
 ```
 root@2172437-rl76948:~/xtls_reality_01# cat .env 
-DOM=microsoft.com
+DOM=www.cloudflare.com/
 UUID=
 SID=
 PRK=
@@ -26,34 +26,21 @@ PBK=
 5) Start the server container with the command docker compose up -d
 6) Use the server_info.sh script to get the data for the client connection, it runs like this - ./server_info.sh , and the output is:
 ```
-2172437-rl76948:~/xtls_reality_01# ./server_info.sh 
-PublicKey(Pbk) = L1P7m1PQ8R-hQHlANMqnuvp4YNqUWkHEagp5fCkJrQw
-PrivateKey(Prk) = CLV3hJDMAXjjyLG8Skyvki1RovnmchDXswjRko5e0UE
-UUID = 9f4f81f6-d5f2-4c30-a2d5-9f91826a3af9
-Domain(SNI) = microsoft.com
-ShortID(Sid) = 9e0fb27ceded3dcc
+root@fra-1-vm-ew4e:~/test/xtls_reality_01# ./server_info.sh
+Domain(SNI) = www.cloudflare.com
+UUID = 2cf31f58-f22c-4ff5-8654-154c7fc7fa73
+ShortID(SID) = 11ec1c6a2a0a3b81
+PrivateKey(PRK) = AKUpAiV3v8fDJifRYNd5Hngg7tB2CHby7FzAkznL1kg
+PublicKey(PBK) = 9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY
+
+VLESS (TCP/Vision) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
+VLESS (XHTTP) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=xhttp&path=%2F&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
 ```
-Download the desired client. Below will be an example to configure NekoBox for windows:
-- Server - New Profile - VLESS for tls or VLESS(xray) for xhttp
-- Name - any name
-- Address - IP of the server where the installation took place
-- Port - 443
-- UUID - what you got in point 6 (also relevant for those who filled env themselves).
-- Flow - xtls-rprx-vision or nothing
-- Transport - xhttp
-- Security - reality
-- Packet encoding - xudp or nothing
-- SNI - specified domain, it is included in the script output in item 6.
-- ALPN - h2
-- Fingerprint - chrome - I recommend it, but you can choose another one (random or qq)
-- Reality Pbk - what you got in point 6 (also relevant for those who filled out env themselves)
-- Reality Sid - what you got in point 6 (also relevant for those who filled env themselves).
-- Connection settings:
-   Host - empty
-   Path - /
-   Headers - empty
-   Mode - auto
-- Leave everything else unchanged (even if the fields are empty).
+Download HAPP from https://github.com/Happ-proxy/happ-desktop, then install it, click “Add Server,” and select the “Add URL” option. 
+Do this first for one VLESS (TCP/Vision) link, then for VLESS (XHTTP). 
+
+AFTERWARDS, DON’T FORGET TO CONFIGURE ROUTING; FOR THIS, LOOK FOR A SEPARATE GUIDE
+
 
 
 Это простой XRAY-XTLS-Reality server в контейнере
@@ -76,32 +63,19 @@ PBK=
 5) Запустить контейнер с сервером командой docker compose up -d
 6) Использовать скрипт server_info.sh для получения данных для подключения клиента, его запуск выглядит так - ./server_info.sh , а результат работы:
 ```
-2172437-rl76948:~/xtls_reality_01# ./server_info.sh 
-PublicKey(Pbk) = L1P7m1PQ8R-hQHlANMqnuvp4YNqUWkHEagp5fCkJrQw
-PrivateKey(Prk) = CLV3hJDMAXjjyLG8Skyvki1RovnmchDXswjRko5e0UE
-UUID = 9f4f81f6-d5f2-4c30-a2d5-9f91826a3af9
-Domain(SNI) = microsoft.com
-ShortID(Sid) = 9e0fb27ceded3dcc
+root@fra-1-vm-ew4e:~/test/xtls_reality_01# ./server_info.sh
+Domain(SNI) = www.cloudflare.com
+UUID = 2cf31f58-f22c-4ff5-8654-154c7fc7fa73
+ShortID(SID) = 11ec1c6a2a0a3b81
+PrivateKey(PRK) = AKUpAiV3v8fDJifRYNd5Hngg7tB2CHby7FzAkznL1kg
+PublicKey(PBK) = 9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY
+
+VLESS (TCP/Vision) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
+VLESS (XHTTP) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=xhttp&path=%2F&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
 ```
-Качаем нужный клиент. Ниже будет пример для настройки throne под windows:
-- Сервер - Новый профиль - VLESS для tls и VLESS(xray) для xhttp.
-- Имя - любое
-- Адрес - IP сервера где происходила установка
-- Порт - 443
-- UUID - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
-- Flow - xtls-rprx-vision или ничего
-- Транспорт (сеть) -  xhttp
-- Безопасность - reality
-- Кодирования пакетов - xudp или ничего
-- SNI - указанный домен, он есть в т.ч. в выводе скрипта в пункте 6
-- ALPN - h2
-- Fingerprint - chrome  - рекомендую его, но можете выбрать другой, или random/qq
-- Reality Pbk - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
-- Reality Sid - то что вы получили в пункте 6 (актуально и для тех, кто заполнял env сам)
-- Reality SpiderX - ставим просто слеш /
-- Настройки соединения:
-  Хост - пусто
-  Путь - /
-  Заголовки - пусто
-  Режим - auto
-- Все остальное оставляем без изменений (даже если поля пустые).
+Качаем нужный клиент. Ниже будет пример для настройки HAPP под windows:
+
+Скачиваете HAPP c https://github.com/Happ-proxy/happ-desktop , после чего устанавливаете, и нажимаете "добавить сервер" выбираете опцию "добавить URL". 
+Сделайте так сначало для одной ссылки VLESS (TCP/Vision) , затем для VLESS (XHTTP). 
+
+ПОСЛЕ ЧЕГО НЕ ЗАБУДЬТЕ НАСТРОИТЬ МАРШРУТИЗАЦЮ, ДЛЯ ЭТОГО ИЩИТЕ ГАЙД ОТДЕЛЬНО
