@@ -1,6 +1,6 @@
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "info"
   },
   "routing": {
     "domainStrategy": "IPIfNonMatch",
@@ -12,7 +12,17 @@
       },
       {
         "type": "field",
+        "domain": ["geosite:category-ru"],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
         "ip": ["geoip:cn"],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "ip": ["geoip:ru"],
         "outboundTag": "block"
       }
     ]
@@ -39,14 +49,14 @@
         ]
       },
       "streamSettings": {
-        "network": "raw",
+        "network": "tcp",
         "security": "reality",
         "realitySettings": {
           "show": false,
           "target": "${DOM}:443",
           "serverNames": ["${DOM}"],
           "privateKey": "${PRK}",
-          "minClientVer": "0.0.0",
+          "minClientVer": "",
           "maxClientVer": "",
           "maxTimeDiff": 0,
           "shortIds": ["${SID}"]
@@ -70,7 +80,12 @@
             "email": "main-xhttp"
           }
         ],
-        "decryption": "none"
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "dest": "${DOM}:443"
+          }
+        ]
       },
       "streamSettings": {
         "network": "xhttp",
@@ -80,13 +95,13 @@
           "target": "${DOM}:443",
           "serverNames": ["${DOM}"],
           "privateKey": "${PRK}",
-          "minClientVer": "0.0.0",
+          "minClientVer": "",
           "maxClientVer": "",
           "maxTimeDiff": 0,
           "shortIds": ["${SID}"]
         },
         "xhttpSettings": {
-          "path": "/",
+          "path": "/${XHTTP_PATH}",
           "mode": "auto"
         }
       },
@@ -95,7 +110,49 @@
         "destOverride": ["http", "tls", "quic"],
         "routeOnly": true
       }
-    }
+    },
+
+    {
+      "tag": "inbound-grpc",
+      "listen": "0.0.0.0",
+      "port": 2053,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          { "id": "${UUID}", "email": "main-grpc" }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "dest": "${DOM}:443"
+          }
+	]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "target": "${DOM}:443",
+          "serverNames": ["${DOM}"],
+          "privateKey": "${PRK}",
+          "minClientVer": "",
+          "maxClientVer": "",
+           "maxTimeDiff": 0,
+          "shortIds": ["${SID}"]
+        },
+        "grpcSettings": {
+          "serviceName": "${GRPC_NAME}",
+          "multiMode": false
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"],
+        "routeOnly": true
+      }
+    }	
+
   ],
   "outbounds": [
     {
@@ -110,8 +167,8 @@
   "policy": {
     "levels": {
       "0": {
-        "handshake": 3,
-        "connIdle": 180
+        "handshake": 10,
+        "connIdle": 300
       }
     }
   }
