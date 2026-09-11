@@ -13,4 +13,5 @@ services:
       - SID=${SID}
       - PBK=${PBK}
       - PRK=${PRK}
-#     - XHTTP_PATH=${XHTTP_PATH}
+      - XHTTP_PATH=${XHTTP_PATH}
+      - GRPC_NAME=${GRPC_NAME}
