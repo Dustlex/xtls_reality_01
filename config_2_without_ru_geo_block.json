@@ -1,0 +1,165 @@
+{
+  "log": {
+    "loglevel": "info"
+  },
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "domain": ["geosite:category-ads-all"],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "ip": ["geoip:cn"],
+        "outboundTag": "block"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "inbound-443",
+      "listen": "0.0.0.0",
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "${UUID}",
+            "email": "main-vision",
+            "flow": "xtls-rprx-vision"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "dest": "${DOM}:443"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "target": "${DOM}:443",
+          "serverNames": ["${DOM}"],
+          "privateKey": "${PRK}",
+          "minClientVer": "",
+          "maxClientVer": "",
+          "maxTimeDiff": 0,
+          "shortIds": ["${SID}"]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"],
+        "routeOnly": true
+      }
+    },
+    {
+      "tag": "inbound-xhttp",
+      "listen": "0.0.0.0",
+      "port": 8443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "${UUID}",
+            "email": "main-xhttp"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "dest": "${DOM}:443"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "target": "${DOM}:443",
+          "serverNames": ["${DOM}"],
+          "privateKey": "${PRK}",
+          "minClientVer": "",
+          "maxClientVer": "",
+          "maxTimeDiff": 0,
+          "shortIds": ["${SID}"]
+        },
+        "xhttpSettings": {
+          "path": "/${XHTTP_PATH}",
+          "mode": "auto"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"],
+        "routeOnly": true
+      }
+    },
+
+    {
+      "tag": "inbound-grpc",
+      "listen": "0.0.0.0",
+      "port": 2053,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          { "id": "${UUID}", "email": "main-grpc" }
+        ],
+        "decryption": "none",
+        "fallbacks": [
+          {
+            "dest": "${DOM}:443"
+          }
+	]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "target": "${DOM}:443",
+          "serverNames": ["${DOM}"],
+          "privateKey": "${PRK}",
+          "minClientVer": "",
+          "maxClientVer": "",
+           "maxTimeDiff": 0,
+          "shortIds": ["${SID}"]
+        },
+        "grpcSettings": {
+          "serviceName": "${GRPC_NAME}",
+          "multiMode": false
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"],
+        "routeOnly": true
+      }
+    }	
+
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ],
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 10,
+        "connIdle": 300
+      }
+    }
+  }
+}
