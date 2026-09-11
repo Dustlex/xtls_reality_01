@@ -3,6 +3,7 @@
 Docker install
 ```
 curl -fsSL https://get.docker.com/ -o get-docker.sh
+chmod +x get-docker.sh
 sudo sh ./get-docker.sh
 ```
 
@@ -16,28 +17,40 @@ Installation steps:
  - the working variant of the file is:
 ```
 root@2172437-rl76948:~/xtls_reality_01# cat .env 
-DOM=www.cloudflare.com/
+DOM=www.cloudflare.com
 UUID=
 SID=
 PRK=
 PBK=
+XHTTP_PATH=
+GRPC_NAME=
 ```
 - If you know the other values (e.g. you already had an xray server and you know all the IDs and a couple of keys). You can specify them (without spaces after the "=" sign) so that the server will use them when configuring.
 5) Start the server container with the command docker compose up -d
 6) Use the server_info.sh script to get the data for the client connection, it runs like this - ./server_info.sh , and the output is:
 ```
-root@fra-1-vm-ew4e:~/test/xtls_reality_01# ./server_info.sh
-Domain(SNI) = www.cloudflare.com
-UUID = 2cf31f58-f22c-4ff5-8654-154c7fc7fa73
-ShortID(SID) = 11ec1c6a2a0a3b81
-PrivateKey(PRK) = AKUpAiV3v8fDJifRYNd5Hngg7tB2CHby7FzAkznL1kg
-PublicKey(PBK) = 9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY
+root@ala-1-vm-d5t2:~/xtls_reality_01_test_all# ./server_info.sh 
 
-VLESS (TCP/Vision) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
-VLESS (XHTTP) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=xhttp&path=%2F&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
+Domain(SNI) = www.cloudflare.com
+UUID = db1c3283-2667-4799-b616-c6fd00545a90
+ShortID(SID) = 0309a237d9751992
+PrivateKey(PRK) = sCyoV1gp0fSjRe_dx5GMFEMWKNhuKy9ZjZA86oD4bWE
+PublicKey(PBK) = D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI
+XHTTP_PATH = eb1c8b90d1677211
+GRPC_NAME = 9660872dbec4cccc
+
+
+
+VLESS (TCP/Vision) = vless://db1c3283-2667-4799-b616-c6fd00545a90@91.200.148.215:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI&sid=0309a237d9751992&type=tcp&alpn=h2,http/1.1#www.dropbox.com-Vision
+
+
+VLESS (XHTTP)      = vless://db1c3283-2667-4799-b616-c6fd00545a90@91.200.148.215:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI&sid=0309a237d9751992&type=xhttp&path=%2Feb1c8b90d1677211&mode=auto&alpn=h2#www.dropbox.com-XHTTP
+
+
+VLESS (gRPC)       = vless://db1c3283-2667-4799-b616-c6fd00545a90@91.200.148.215:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI&sid=0309a237d9751992&type=grpc&serviceName=9660872dbec4cccc&mode=gun#www.dropbox.com-gRPC
 ```
 Download HAPP from https://github.com/Happ-proxy/happ-desktop, then install it, click “Add Server,” and select the “Add URL” option. 
-Do this first for one VLESS (TCP/Vision) link, then for VLESS (XHTTP). 
+Do this first for one VLESS (TCP/Vision) link, then for VLESS (XHTTP) and for VLESS (gRPC).
 
 AFTERWARDS, DON’T FORGET TO CONFIGURE ROUTING; FOR THIS, LOOK FOR A SEPARATE GUIDE
 
@@ -53,54 +66,41 @@ AFTERWARDS, DON’T FORGET TO CONFIGURE ROUTING; FOR THIS, LOOK FOR A SEPARATE G
  - Т.е. рабочий вариант файла это:
 ```
 root@2172437-rl76948:~/xtls_reality_01# cat .env 
-DOM=microsoft.com
+DOM=www.cloudflare.com
 UUID=
 SID=
 PRK=
 PBK=
+XHTTP_PATH=
+GRPC_NAME=
 ```
 - Если вам известны остальные значения (например у вас уже был xray сервер, и вы знаете как все ID так и пару ключей). Вы можете их указать (без пробелов после знака "="), чтобы сервер при настройке использовал их.
 5) Запустить контейнер с сервером командой docker compose up -d
 6) Использовать скрипт server_info.sh для получения данных для подключения клиента, его запуск выглядит так - ./server_info.sh , а результат работы:
 ```
-root@fra-1-vm-ew4e:~/test/xtls_reality_01# ./server_info.sh
-Domain(SNI) = www.cloudflare.com
-UUID = 2cf31f58-f22c-4ff5-8654-154c7fc7fa73
-ShortID(SID) = 11ec1c6a2a0a3b81
-PrivateKey(PRK) = AKUpAiV3v8fDJifRYNd5Hngg7tB2CHby7FzAkznL1kg
-PublicKey(PBK) = 9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY
+root@ala-1-vm-d5t2:~/xtls_reality_01_test_all# ./server_info.sh 
 
-VLESS (TCP/Vision) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
-VLESS (XHTTP) = vless://2cf31f58-f22c-4ff5-8654-154c7fc7fa73@186.246.26.228:443?encryption=none&security=reality&sni=www.cloudflare.com&fp=chrome&pbk=9en7mFxRYNNkLWj1PreZUaiHXxbK_uC1aW01G-MnOSY&sid=11ec1c6a2a0a3b81&type=xhttp&path=%2F&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
+Domain(SNI) = www.cloudflare.com
+UUID = db1c3283-2667-4799-b616-c6fd00545a90
+ShortID(SID) = 0309a237d9751992
+PrivateKey(PRK) = sCyoV1gp0fSjRe_dx5GMFEMWKNhuKy9ZjZA86oD4bWE
+PublicKey(PBK) = D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI
+XHTTP_PATH = eb1c8b90d1677211
+GRPC_NAME = 9660872dbec4cccc
+
+
+
+VLESS (TCP/Vision) = vless://db1c3283-2667-4799-b616-c6fd00545a90@91.200.148.215:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI&sid=0309a237d9751992&type=tcp&alpn=h2,http/1.1#www.dropbox.com-Vision
+
+
+VLESS (XHTTP)      = vless://db1c3283-2667-4799-b616-c6fd00545a90@91.200.148.215:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI&sid=0309a237d9751992&type=xhttp&path=%2Feb1c8b90d1677211&mode=auto&alpn=h2#www.dropbox.com-XHTTP
+
+
+VLESS (gRPC)       = vless://db1c3283-2667-4799-b616-c6fd00545a90@91.200.148.215:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=D1CMfGbs6AAMvdLNajTxxJjPUexRDPBxZ88N8RbBfiI&sid=0309a237d9751992&type=grpc&serviceName=9660872dbec4cccc&mode=gun#www.dropbox.com-gRPC
 ```
 Качаем нужный клиент. Ниже будет пример для настройки HAPP под windows:
 
 Скачиваете HAPP c https://github.com/Happ-proxy/happ-desktop , после чего устанавливаете, и нажимаете "добавить сервер" выбираете опцию "добавить URL". 
-Сделайте так сначало для одной ссылки VLESS (TCP/Vision) , затем для VLESS (XHTTP). 
-
-А это себе потестить интереса ради
-```
-"realitySettings": {
-  "show": false,
-  "target": "${DOM}:443",
-  "serverNames": ["${DOM}"],
-  "privateKey": "${PRK}",
-  "minClientVer": "0.0.0",
-  "maxClientVer": "",
-  "maxTimeDiff": 0,
-  "shortIds": ["${SID}"],
-
-  "limitFallbackUpload": {
-    "afterBytes": 10485760,
-    "bytesPerSec": 1048576,
-    "burstBytesPerSec": 5242880
-  },
-  "limitFallbackDownload": {
-    "afterBytes": 10485760,
-    "bytesPerSec": 1048576,
-    "burstBytesPerSec": 5242880
-  }
-}
-```
+Сделайте так сначало для одной ссылки VLESS (TCP/Vision) , затем для VLESS (XHTTP) и VLESS (gRPC)
 
 ПОСЛЕ ЧЕГО НЕ ЗАБУДЬТЕ НАСТРОИТЬ МАРШРУТИЗАЦЮ, ДЛЯ ЭТОГО ИЩИТЕ ГАЙД ОТДЕЛЬНО
