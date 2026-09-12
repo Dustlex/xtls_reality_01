@@ -24,6 +24,11 @@
         "type": "field",
         "ip": ["geoip:ru"],
         "outboundTag": "block"
+      },
+      {
+      "type": "field",
+      "domain": ["domain:ru", "domain:xn--p1ai", "domain:su"],
+      "outboundTag": "block"
       }
     ]
   },
