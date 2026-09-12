@@ -5,7 +5,7 @@ services:
       dockerfile: ./dockerfile
     restart: always
     container_name: xray_xtls_real.03
-    privileged: true
+    #privileged: true
     network_mode: "host"
     environment:
       - DOM=${DOM}
