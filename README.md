@@ -38,21 +38,17 @@ XHTTP_PATH = 4dc99068febfdfa3
 GRPC_NAME = b084b56dcee6f5ac
 
 
+YOU CAN COPY ALL THREE LINKS BELOW AT ONCE AND PASTE THEM INTO THE SUBSCRIPTION URL FIELD IN HAPP
 
-VLESS (TCP/Vision) = vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
+vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
 
+vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=xhttp&path=%2F4dc99068febfdfa3&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
 
-VLESS (XHTTP)      = vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=xhttp&path=%2F4dc99068febfdfa3&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
-
-
-VLESS (gRPC)       = vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=grpc&serviceName=b084b56dcee6f5ac&mode=gun#www.cloudflare.com-gRPC
+vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=grpc&serviceName=b084b56dcee6f5ac&mode=gun#www.cloudflare.com-gRPC
 ```
-Download HAPP from https://github.com/Happ-proxy/happ-desktop, then install it, click “Add Server,” and select the “Add URL” option. 
-Do this first for one VLESS (TCP/Vision) link, then for VLESS (XHTTP) and for VLESS (gRPC).
+Download happ from https://github.com/Happ-proxy/happ-desktop, install it, then click “add subscription” or “add from url” and paste all three links from the script output at once
 
-AFTERWARDS, DON’T FORGET TO CONFIGURE ROUTING; FOR THIS, LOOK FOR A SEPARATE GUIDE
-
-
+ALSO, NOTE THAT THE SERVER AGGRESSIVELY BLOCKS ALL RUSSIAN RESOURCES. TO ACCESS RUSSIAN RESOURCES WHILE THE VPN IS ENABLED, CONFIGURE ROUTING ON THE CLIENT.
 
 Это простой XRAY-XTLS-Reality server в контейнере
 
@@ -92,18 +88,16 @@ XHTTP_PATH = 4dc99068febfdfa3
 GRPC_NAME = b084b56dcee6f5ac
 
 
+YOU CAN COPY ALL THREE LINKS BELOW AT ONCE AND PASTE THEM INTO THE SUBSCRIPTION URL FIELD IN HAPP
 
-VLESS (TCP/Vision) = vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
+vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
 
+vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=xhttp&path=%2F4dc99068febfdfa3&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
 
-VLESS (XHTTP)      = vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=xhttp&path=%2F4dc99068febfdfa3&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
-
-
-VLESS (gRPC)       = vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=grpc&serviceName=b084b56dcee6f5ac&mode=gun#www.cloudflare.com-gRPC
+vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=grpc&serviceName=b084b56dcee6f5ac&mode=gun#www.cloudflare.com-gRPC
 ```
 Качаем нужный клиент. Ниже будет пример для настройки HAPP под windows:
 
-Скачиваете HAPP c https://github.com/Happ-proxy/happ-desktop , после чего устанавливаете, и нажимаете "добавить сервер" выбираете опцию "добавить URL". 
-Сделайте так сначало для одной ссылки VLESS (TCP/Vision) , затем для VLESS (XHTTP) и VLESS (gRPC)
+Скачиваете HAPP c https://github.com/Happ-proxy/happ-desktop , после чего устанавливаете, нажимайте "Добавить подписку" или "Добавить URL" после чего копируйте туда все три ссылки разом. 
 
-ПОСЛЕ ЧЕГО НЕ ЗАБУДЬТЕ НАСТРОИТЬ МАРШРУТИЗАЦЮ, ДЛЯ ЭТОГО ИЩИТЕ ГАЙД ОТДЕЛЬНО
+ТАКЖЕ УЧИТЫВАЙТЕ ЧТО СЕРВЕР АГРЕССИВНО БЛОКИРУЕТ ВСЕ РОССИЙСКИЕ РЕСУРСЫ, ПОТОМУ ДЛЯ РАБОТЫ РФ РЕСУРСОВ ПРИ ВКЛЮЧЕННОМ ВПН, НАСТРАИВАЙТЕ МАРШРУТИЗАЦИЮ НА КЛИЕНТЕ. 
