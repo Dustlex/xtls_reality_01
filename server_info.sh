@@ -23,18 +23,18 @@ echo "GRPC_NAME = $GNAME"
 
 echo ""
 echo ""
-echo ""
-
-echo "VLESS (TCP/Vision) = vless://${UUID}@${IP}:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=tcp&alpn=h2,http/1.1#${DOM}-Vision"
+echo "YOU CAN COPY ALL THREE LINKS BELOW AT ONCE AND PASTE THEM INTO THE SUBSCRIPTION URL FIELD IN HAPP"
 
 echo ""
+
+echo "vless://${UUID}@${IP}:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=tcp&alpn=h2,http/1.1#${DOM}-Vision"
+
 echo ""
 
-echo "VLESS (XHTTP)      = vless://${UUID}@${IP}:8443?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=xhttp&path=%2F${XPATH}&mode=auto&alpn=h2#${DOM}-XHTTP"
+echo "vless://${UUID}@${IP}:8443?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=xhttp&path=%2F${XPATH}&mode=auto&alpn=h2#${DOM}-XHTTP"
 
 echo ""
-echo ""
 
-echo "VLESS (gRPC)       = vless://${UUID}@${IP}:2053?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=grpc&serviceName=${GNAME}&mode=gun#${DOM}-gRPC"
+echo "vless://${UUID}@${IP}:2053?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=grpc&serviceName=${GNAME}&mode=gun#${DOM}-gRPC"
 
 echo ""
