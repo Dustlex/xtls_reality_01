@@ -13,13 +13,21 @@ PBK=$(docker compose exec -T xray cat /home/PBK.txt)
 
 echo ""
 
-echo "Domain(SNI) = $DOM"
-echo "UUID = $UUID"
-echo "ShortID(SID) = $SID"
-echo "PrivateKey(PRK) = $PRK"
-echo "PublicKey(PBK) = $PBK"
-echo "XHTTP_PATH = $XPATH"
-echo "GRPC_NAME = $GNAME"
+echo "DOM=$DOM"
+echo "UUID=$UUID"
+echo "SID=$SID"
+echo "PRK=$PRK"
+echo "PBK=$PBK"
+echo "XHTTP_PATH=$XPATH"
+echo "GRPC_NAME=$GNAME"
+
+#echo "Domain(SNI) = $DOM"
+#echo "UUID = $UUID"
+#echo "ShortID(SID) = $SID"
+#echo "PrivateKey(PRK) = $PRK"
+#echo "PublicKey(PBK) = $PBK"
+#echo "XHTTP_PATH = $XPATH"
+#echo "GRPC_NAME = $GNAME"
 
 echo ""
 echo ""
