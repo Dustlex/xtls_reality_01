@@ -50,6 +50,11 @@ Download happ from https://github.com/Happ-proxy/happ-desktop, install it, then 
 
 ALSO, NOTE THAT THE SERVER AGGRESSIVELY BLOCKS ALL RUSSIAN RESOURCES. TO ACCESS RUSSIAN RESOURCES WHILE THE VPN IS ENABLED, CONFIGURE ROUTING ON THE CLIENT.
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 Это простой XRAY-XTLS-Reality server в контейнере
 
 Сначало ставим докер 
