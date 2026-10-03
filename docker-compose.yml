@@ -15,3 +15,5 @@ services:
       - PRK=${PRK}
       - XHTTP_PATH=${XHTTP_PATH}
       - GRPC_NAME=${GRPC_NAME}
+    volumes:
+      - ./ssl:/etc/ssl/xray
