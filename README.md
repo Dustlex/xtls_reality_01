@@ -27,24 +27,26 @@ GRPC_NAME=
 5) Start the server container with the command docker compose up -d
 6) Use the server_info.sh script to get the data for the client connection, it runs like this - ./server_info.sh , and the output is:
 ```
-root@ams-1-vm-2znk:~/xtls_reality_01# ./server_info.sh 
+root@ams-1-vm-ydbm:~/xtls_reality_01# ./server_info.sh 
 
-Domain(SNI) = www.cloudflare.com
-UUID = 1b7d4d6b-c716-4689-92f4-10c6c02301c9
-ShortID(SID) = 177d178b7896a8da
-PrivateKey(PRK) = GLcHv6Sy6XLGjtrz8GaGcEGvYHwtubWi3UkPj7YFpnw
-PublicKey(PBK) = HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg
-XHTTP_PATH = 4dc99068febfdfa3
-GRPC_NAME = b084b56dcee6f5ac
+DOM=www.cloudflare.com
+UUID=833b00e2-d22a-438f-afc0-4ffe84b3e321
+SID=0efe469178a8e818
+PRK=gINIYFJ9ZudLkv1HEvyddztzw2AQlwFP_a6Vd46BMFQ
+PBK=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg
+XHTTP_PATH=66e9b6aefd7ba2b2
+GRPC_NAME=da0d086429f33389
 
 
 YOU CAN COPY ALL THREE LINKS BELOW AT ONCE AND PASTE THEM INTO THE SUBSCRIPTION URL FIELD IN HAPP
 
-vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
+vless://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg&sid=0efe469178a8e818&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
 
-vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=xhttp&path=%2F4dc99068febfdfa3&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
+vless://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg&sid=0efe469178a8e818&type=xhttp&path=%2F66e9b6aefd7ba2b2&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
 
-vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=grpc&serviceName=b084b56dcee6f5ac&mode=gun#www.cloudflare.com-gRPC
+vless://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg&sid=0efe469178a8e818&type=grpc&serviceName=da0d086429f33389&mode=gun#www.cloudflare.com-gRPC
+
+hysteria2://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:443/?sni=www.cloudflare.com&insecure=0&pinSHA256=aa04438bf0c4d66a500b8870d931cee400d5bd115ab1a3231a03c894acd0cd3f&obfs=salamander&obfs-password=0efe469178a8e818#www.cloudflare.com-Hysteria2
 ```
 Download happ from https://github.com/Happ-proxy/happ-desktop, install it, then click “add subscription” or “add from url” and paste all three links from the script output at once
 
@@ -82,24 +84,26 @@ GRPC_NAME=
 5) Запустить контейнер с сервером командой docker compose up -d
 6) Использовать скрипт server_info.sh для получения данных для подключения клиента, его запуск выглядит так - ./server_info.sh , а результат работы:
 ```
-root@ams-1-vm-2znk:~/xtls_reality_01# ./server_info.sh 
+root@ams-1-vm-ydbm:~/xtls_reality_01# ./server_info.sh 
 
-Domain(SNI) = www.cloudflare.com
-UUID = 1b7d4d6b-c716-4689-92f4-10c6c02301c9
-ShortID(SID) = 177d178b7896a8da
-PrivateKey(PRK) = GLcHv6Sy6XLGjtrz8GaGcEGvYHwtubWi3UkPj7YFpnw
-PublicKey(PBK) = HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg
-XHTTP_PATH = 4dc99068febfdfa3
-GRPC_NAME = b084b56dcee6f5ac
+DOM=www.cloudflare.com
+UUID=833b00e2-d22a-438f-afc0-4ffe84b3e321
+SID=0efe469178a8e818
+PRK=gINIYFJ9ZudLkv1HEvyddztzw2AQlwFP_a6Vd46BMFQ
+PBK=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg
+XHTTP_PATH=66e9b6aefd7ba2b2
+GRPC_NAME=da0d086429f33389
 
 
 YOU CAN COPY ALL THREE LINKS BELOW AT ONCE AND PASTE THEM INTO THE SUBSCRIPTION URL FIELD IN HAPP
 
-vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
+vless://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg&sid=0efe469178a8e818&type=tcp&alpn=h2,http/1.1#www.cloudflare.com-Vision
 
-vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=xhttp&path=%2F4dc99068febfdfa3&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
+vless://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:8443?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg&sid=0efe469178a8e818&type=xhttp&path=%2F66e9b6aefd7ba2b2&mode=auto&alpn=h2#www.cloudflare.com-XHTTP
 
-vless://1b7d4d6b-c716-4689-92f4-10c6c02301c9@64.188.62.229:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=HutOLqU8RPtkLjuLEngw39V9Eud0Ih2-FVAPlJpEdgg&sid=177d178b7896a8da&type=grpc&serviceName=b084b56dcee6f5ac&mode=gun#www.cloudflare.com-gRPC
+vless://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:2053?encryption=none&security=reality&sni=www.cloudflare.com&fp=firefox&pbk=g86GcIHjsl3FjCHtLADT8MvGFdGeA6FIqx0y-0XhOVg&sid=0efe469178a8e818&type=grpc&serviceName=da0d086429f33389&mode=gun#www.cloudflare.com-gRPC
+
+hysteria2://833b00e2-d22a-438f-afc0-4ffe84b3e321@77.233.215.57:443/?sni=www.cloudflare.com&insecure=0&pinSHA256=aa04438bf0c4d66a500b8870d931cee400d5bd115ab1a3231a03c894acd0cd3f&obfs=salamander&obfs-password=0efe469178a8e818#www.cloudflare.com-Hysteria2
 ```
 Качаем нужный клиент. Ниже будет пример для настройки HAPP под windows:
 
