@@ -11,5 +11,12 @@ echo "$PBK" > /home/PBK.txt
 echo "$XHTTP_PATH" > /home/XHTTP_PATH.txt
 echo "$GRPC_NAME" > /home/GRPC_NAME.txt
 
+mkdir -p /etc/ssl/xray # весь блок с openssl ниже, для работы истерии с самоподписанным сертом
+openssl req -x509 -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -nodes -days 3650 \
+  -subj "/CN=${DOM}" -addext "subjectAltName=DNS:${DOM}" \
+  -keyout /etc/ssl/xray/${DOM}.key -out /etc/ssl/xray/${DOM}.crt
+openssl x509 -in /etc/ssl/xray/${DOM}.crt -noout -fingerprint -sha256 > /home/fingerprint.txt # отпечаток для клиента
+chmod 644 /etc/ssl/xray/${DOM}.crt; chmod 640 /etc/ssl/xray/${DOM}.key  # пользователь xray должен читать оба файла
+
 envsubst < /opt/xray/config.json_prepare_2 > /opt/xray/config.json
 /opt/xray/xray run -c /opt/xray/config.json
