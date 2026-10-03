@@ -156,7 +156,43 @@
         "destOverride": ["http", "tls", "quic"],
         "routeOnly": true
       }
-    }	
+    },
+    {
+      "tag": "inbound-hysteria2",
+      "port": 443,
+      "protocol": "hysteria",
+      "settings": {
+        "version": 2,
+        "users": [
+          { "auth": "${UUID}", "email": "main-hy2" }
+        ]
+      },
+      "streamSettings": {
+        "network": "hysteria",
+        "security": "tls",
+        "tlsSettings": {
+          "alpn": ["h3"],
+          "certificates": [
+            {
+              "certificateFile": "/etc/ssl/xray/${DOM}.crt",
+              "keyFile": "/etc/ssl/xray/${DOM}.key"
+            }
+          ]
+        },
+        "hysteriaSettings": { "version": 2 },
+	"finalmask": {
+         "udp": [
+            { "type": "salamander", "settings": { "password": "${SID}" } }
+          ]
+        }
+
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls", "quic"],
+        "routeOnly": true
+      }
+    }
 
   ],
   "outbounds": [
