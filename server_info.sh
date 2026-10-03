@@ -10,6 +10,7 @@ PRK=$(echo "$CFG" | jq -r '.inbounds[] | select(.tag=="inbound-443") | .streamSe
 XPATH=$(echo "$CFG" | jq -r '.inbounds[] | select(.tag=="inbound-xhttp") | .streamSettings.xhttpSettings.path' | sed 's#^/##' )
 GNAME=$(echo "$CFG" | jq -r '.inbounds[] | select(.tag=="inbound-grpc") | .streamSettings.grpcSettings.serviceName')
 PBK=$(docker compose exec -T xray cat /home/PBK.txt)
+PIN=$(docker compose exec -T xray cat /home/fingerprint.txt | sed 's/.*=//; s/://g' | tr 'A-F' 'a-f' | tr -d '\r\n') # отпечаток серта истерии
 
 echo ""
 
@@ -44,5 +45,9 @@ echo "vless://${UUID}@${IP}:8443?encryption=none&security=reality&sni=${DOM}&fp=
 echo ""
 
 echo "vless://${UUID}@${IP}:2053?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=grpc&serviceName=${GNAME}&mode=gun#${DOM}-gRPC"
+
+echo ""
+
+echo "hysteria2://${UUID}@${IP}:443/?sni=${DOM}&insecure=0&pinSHA256=${PIN}&obfs=salamander&obfs-password=${SID}#${DOM}-Hysteria2"
 
 echo ""
