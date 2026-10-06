@@ -40,7 +40,11 @@ echo "vless://${UUID}@${IP}:443?encryption=none&flow=xtls-rprx-vision&security=r
 
 echo ""
 
-echo "vless://${UUID}@${IP}:8443?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=xhttp&path=%2F${XPATH}&mode=auto&alpn=h2#${DOM}-XHTTP"
+echo "vless://${UUID}@${IP}:8443?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=xhttp&path=%2F${XPATH}&mode=packet-up&alpn=h2#${DOM}-XHTTP-packet"
+
+echo ""
+
+echo "vless://${UUID}@${IP}:8443?encryption=none&security=reality&sni=${DOM}&fp=firefox&pbk=${PBK}&sid=${SID}&type=xhttp&path=%2F${XPATH}&mode=stream-up&alpn=h2#${DOM}-XHTTP-stream"
 
 echo ""
 
