@@ -1,5 +1,7 @@
 # xtls_reality_01
 
+ВАЖНО --- ЭТОТ ПРОЕКТ УСТАРЕЛ, БОЛЕЕ НОВЫЙ ВАРИАНТ ТУТ - https://github.com/Dustlex/personal_blog/tree/main
+
 Docker install
 ```
 curl -fsSL https://get.docker.com/ -o get-docker.sh && chmod +x get-docker.sh && ./get-docker.sh
